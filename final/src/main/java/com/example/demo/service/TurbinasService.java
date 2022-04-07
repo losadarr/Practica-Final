@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.demo.model.Turbina;
 
 public interface TurbinasService {
-    Turbina getInfo(int i);
+    Turbina getInfo(Long i);
     List<Turbina> getAllInfo();
-    int changeInfo(int i);
+    boolean putInfo(Long i, Long angulo, Long altura, Long velocidad_max, boolean on);
 }
