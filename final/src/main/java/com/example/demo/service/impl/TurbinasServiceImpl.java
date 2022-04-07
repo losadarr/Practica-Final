@@ -1,5 +1,7 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+
 import com.example.demo.model.Turbina;
 import com.example.demo.repository.Repository;
 import com.example.demo.service.TurbinasService;
@@ -19,9 +21,8 @@ public class TurbinasServiceImpl implements TurbinasService{
     }
 
     @Override
-    public Turbina getAllInfo() {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Turbina> getAllInfo() {
+        return repositorio.getAllInfoQuery();
     }
 
     @Override
