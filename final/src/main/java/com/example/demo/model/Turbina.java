@@ -11,16 +11,16 @@ private @Column("ID") @Id Long id;
 private @Column("ANGULO") Long angulo;
 private @Column("ALTURA") Long altura;
 private @Column("VELOCIDAD_MAX") Long velocidad_max;
-private @Column("ON") Boolean on;
+private @Column("ENCENDIDO") Boolean on;
 private @Column("CARGA") Long carga;
 
-public Turbina(Long id, Long angulo, Long altura, Long velocidad_max, Boolean on, Long carga) {
+public Turbina(Long id, Long angulo, Long altura, Long velocidad_max, Boolean on) {
     this.id = id;
     this.angulo = angulo;
     this.altura = altura;
     this.velocidad_max = velocidad_max;
     this.on = on;
-    this.carga = carga;
+    this.carga = 50L;
 }
 
 public Long getId() {

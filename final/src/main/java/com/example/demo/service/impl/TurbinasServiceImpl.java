@@ -26,7 +26,6 @@ public class TurbinasServiceImpl implements TurbinasService{
     @Override
     public List<Turbina> getAllInfo() {
         return repositorio.findAll();
-        
     }
 
     @Override

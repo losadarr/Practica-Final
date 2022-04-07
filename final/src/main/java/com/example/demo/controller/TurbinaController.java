@@ -30,13 +30,13 @@ public class TurbinaController {
     }
 
     @PutMapping("/api/putInfo")
-    public String putInfo(@RequestBody Turbina turbina){
+    public ResponseEntity<String> putInfo(@RequestBody Turbina turbina){
         Long id = turbina.getId();
         Long angulo = turbina.getAngulo();
         Long altura = turbina.getAltura();
         Long velocidad_max = turbina.getVelocidad_max();
         boolean on = turbina.getOn();
         servicio.putInfo(id, angulo, altura, velocidad_max, on);
-        return "Ok! Changes made";
+        return new ResponseEntity<>("Ok! Cambios realizados", HttpStatus.OK);
     }
 }
