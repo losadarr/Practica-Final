@@ -24,7 +24,7 @@ public class TurbinasServiceImpl implements TurbinasService{
     }
 
     @Override
-    public List<Turbina> getAllInfo() {
+    public Iterable<Turbina> getAllInfo() {
         return repositorio.findAll();
     }
 
@@ -42,7 +42,17 @@ public class TurbinasServiceImpl implements TurbinasService{
         turbina.setVelocidad_max(velocidad_max);
         turbina.setOn(on);
         return true;
+    }
 
+    @Override
+    public Turbina createInfo(Turbina turbina){
+        Long id = turbina.getId();
+        Long angulo = turbina.getAngulo();
+        Long altura = turbina.getAltura();
+        Long velocidad_max = turbina.getVelocidad_max();
+        boolean on = turbina.getOn();
+
+        repositorio.addTurbina(turbina);
     }
     
 }
