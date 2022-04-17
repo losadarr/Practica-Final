@@ -52,7 +52,8 @@ public class TurbinasServiceImpl implements TurbinasService{
         Long velocidad_max = turbina.getVelocidad_max();
         boolean on = turbina.getOn();
 
-        repositorio.addTurbina(turbina);
+        repositorio.addTurbina(id, angulo, altura, velocidad_max, on);
+        return turbina;
     }
     
 }
