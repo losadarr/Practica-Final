@@ -16,13 +16,9 @@ public interface Repository extends CrudRepository <Turbina, Long> {
     List<Turbina> getAllInfo(); //+ "Query"
 
     @Query("INSERT INTO TURBINA VALUES(:ID, :ANGULO, :ALTURA, :VELOCIDAD_MAX, :ENCENDIDO, :CARGA")
-<<<<<<< HEAD
     int addTurbina(@Param("ID")Long id, @Param("ANGULO")Long angulo, @Param("ALTURA")Long altura, @Param("VELOCIDAD_MAX")Long velocidad_max, @Param("ENCENDIDO")boolean on);
-=======
-    int addTurbina(@Param("ID")long id, @Param("ANGULO")long angulo, @Param("ALTURA")long altura, @Param("VELOCIDAD_MAX")long velocidad_max, @Param("ENCENDIDO")boolean on);
->>>>>>> 9d1f576074d37dbfc9c15a8377462401983438c3
 
      @Query("UPDATE TURBINA SET ANGULO = :ANGULO, ALTURA = :ALTURA, VELOCIDAD_MAX = :VELOCIDAD_MAX, ENCENDIDO = :ENCENDIDO WHERE ID = :ID")
-     int putInfo(@Param("ID")int i, @Param("ANGULO")int angulo, @Param("ALTURA")int altura, @Param("VELOCIDAD_MAX")int velocidad_max, @Param("ENCENDIDO")boolean on);
+     int putInfo(@Param("ID")Long i, @Param("ANGULO")Long angulo, @Param("ALTURA")Long altura, @Param("VELOCIDAD_MAX")Long velocidad_max, @Param("ENCENDIDO")boolean on);
 
 }
