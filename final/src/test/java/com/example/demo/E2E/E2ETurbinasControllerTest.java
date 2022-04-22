@@ -22,7 +22,7 @@ public class E2ETurbinasControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Test
+    /*@Test
     public void testing_processController_step1_then_ok(){
         //Given
         String address = "http://localhost:" + port + "/api/v1/process-step1";
@@ -37,5 +37,5 @@ public class E2ETurbinasControllerTest {
 
 		//Then
 		then(result.getBody()).isEqualTo("OK! Cambios realizados");
-    }
+    }*/
 }
