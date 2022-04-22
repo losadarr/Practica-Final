@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
 import com.example.demo.model.Turbina;
 import com.example.demo.service.TurbinasService;
 
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import lombok.NonNull;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -49,4 +49,22 @@ public class TurbinaController {
 
         return new ResponseEntity<>(turbina, HttpStatus.OK);
     }
+    public record DataRequest(
+        @NonNull
+        Long id,
+
+        @NonNull
+        Long angulo,
+
+        @NonNull
+        Long altura,
+        
+        @NonNull
+        Long velocidad_max,
+        
+        @NonNull
+        boolean encendido,
+        
+        @NonNull
+        Long carga) {}
 }

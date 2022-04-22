@@ -3,6 +3,7 @@ package com.example.demo.E2E;
 import java.net.http.HttpHeaders;
 
 import com.example.demo.controller.TurbinaController;
+import com.example.demo.controller.TurbinaController.DataRequest;
 import com.example.demo.model.Turbina;
 
 import org.junit.Test;
@@ -27,6 +28,7 @@ public class E2ETurbinasControllerTest {
         String address = "http://localhost:" + port + "/api/v1/process-step1";
 		//DataRequest dataRequest = new DataRequest("Calamardo", "38937498Q", "666666666");
         Turbina turbina = new Turbina(3L,120L,100L,50L,true);
+        DataRequest dataRequest = new DataRequest(3L,23L,345L,60L,true,34L);
 		HttpHeaders headers = new HttpHeaders());
 		HttpEntity<TurbinaController.DataRequest> request = new HttpEntity<>(dataRequest, headers);
 
