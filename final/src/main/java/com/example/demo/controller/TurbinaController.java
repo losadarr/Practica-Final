@@ -23,12 +23,13 @@ public class TurbinaController {
     @Autowired
     private TurbinasService servicio;
 
-    @GetMapping("/api/turbina")
-    public ResponseEntity<Turbina> getInfoController(Long i){
-        return new ResponseEntity<>(servicio.getInfo(i), HttpStatus.OK);
+    @GetMapping("/api/turbina/{id}")
+    public ResponseEntity<Turbina> getInfoController(@PathVariable("id") String id){
+        Long idLong = Long.parseLong(id); 
+        return new ResponseEntity<>(servicio.getInfo(idLong), HttpStatus.OK);
     }
 
-    @GetMapping("/api/turbinas")
+    @GetMapping("/api/turbina")
     public ResponseEntity<Iterable<Turbina>> getAllInfoController(){
         return new ResponseEntity<>(servicio.getAllInfo(), HttpStatus.OK);
     }
