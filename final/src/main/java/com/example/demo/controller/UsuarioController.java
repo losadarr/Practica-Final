@@ -37,10 +37,11 @@ public class UsuarioController {
     }
 
     //Get de solamente el usuario con ese id
-    @GetMapping("/user/{id}")
-    private Usuario getUser(@PathVariable("id") String id) {
-        Long idLong = Long.parseLong(id); 
-        return usuarioService.getUserById(idLong);
+    @GetMapping("/user/{correo}")
+    private Usuario getUser(@PathVariable("correo") String correo) {
+        
+        //Long idLong = Long.parseLong(id); 
+        return usuarioService.getUserByMail(correo);
     }
 
     //Meter un usuario

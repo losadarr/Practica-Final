@@ -32,4 +32,9 @@ public class UsuarioServiceImpl implements UsuarioService{
         String password=usuario.getPassword();
         userRepository.newUser(id,correo,password);
     }
+
+    @Override
+    public Usuario getUserByMail(String correo) {
+        return userRepository.getUserByMail(correo);
+    }
 }

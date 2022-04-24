@@ -9,5 +9,7 @@ public interface UsuarioService {
 
     Usuario getUserById(Long id);
 
+    Usuario getUserByMail(String correo);
+
     void createUser(Usuario usuario);
 }
