@@ -16,7 +16,7 @@ public class ClimaServiceImpl implements ClimaService{
     @Override
     public Clima getClima() {
         Random rn = new Random();
-        Long x = rn.nextLong(6);
+        Long x = rn.nextLong(4);
         return repository.findById(x).get();
     }
     
