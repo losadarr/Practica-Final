@@ -3,7 +3,7 @@ const validateUser = async () => {
   //let contrasenyaInput=document.getElementById("contrasenyaInicio").value;
 
   let correoInput = $("#login").value;
-  let passwordInput = $("#login").value;
+  let passwordInput = $("#password").value;
 
   let request = await fetch("/api/v1/usuarios/" + correoInput, {
     method: "GET",

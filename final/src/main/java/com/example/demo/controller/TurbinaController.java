@@ -23,18 +23,18 @@ public class TurbinaController {
     @Autowired
     private TurbinasService servicio;
 
-    @GetMapping("/api/turbina/{id}")
+    @GetMapping("/turbina/{id}")
     public ResponseEntity<Turbina> getInfoController(@PathVariable("id") String id){
         Long idLong = Long.parseLong(id); 
         return new ResponseEntity<>(servicio.getInfo(idLong), HttpStatus.OK);
     }
 
-    @GetMapping("/api/turbina")
+    @GetMapping("/turbina")
     public ResponseEntity<Iterable<Turbina>> getAllInfoController(){
         return new ResponseEntity<>(servicio.getAllInfo(), HttpStatus.OK);
     }
 
-    @PutMapping("/api/turbina")
+    @PutMapping("/turbina")
     public ResponseEntity<String> putInfo(@RequestBody Turbina turbina){
         Long id = turbina.getId();
         Long angulo = turbina.getAngulo();
@@ -45,7 +45,7 @@ public class TurbinaController {
         return new ResponseEntity<>("Ok! Cambios realizados", HttpStatus.OK);
     }
 
-    @PostMapping("/api/turbina/{id}")
+    @PostMapping("/turbina/{id}")
     public ResponseEntity<Turbina> postInfo(@PathVariable String id, @RequestBody Turbina turbina){
 
         return new ResponseEntity<>(turbina, HttpStatus.OK);

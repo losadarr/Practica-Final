@@ -116,7 +116,8 @@
           <div class="row" style="height:50%">
             <h4>Configurar turbina:</h4>
             <form>
-              <div class="form-group">
+              <div class="row">
+              <div class="col form-group">
                 <label for="id-form">Escoja una turbina</label>
                 <select class="form-control" id="id-form">
                   <option>1</option>
@@ -126,17 +127,29 @@
                   <option>5</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label for="angulo-form">Escoja el ángulo en grados:</label>
+
+              <div class="col form-group">
+                <label for="angulo-form">Ángulo en grados:</label>
                 <input type="number" class="form-control" id="angulo-form" placeholder="e.g. 180">
               </div>
-              <div class="form-group">
-                <label for="altura-form">Escoja la altura en metros:</label>
+            </div>
+              <div class="row">
+              <div class="col form-group">
+                <label for="altura-form">Altura en metros:</label>
                 <input type="number" class="form-control" id="altura-form" placeholder="e.g. 25">
               </div>
-              <div class="form-group">
-                <label for="vmax-form">Escoja el límite de velocidad en km/h:</label>
-                <input type="number" class="form-control" id="vmax-form" placeholder="e.g. 180">
+              <div class="col form-group">
+                <label for="vmax-form">Velocidad en km/h:</label>
+                <input type="number" class="form-control" id="vmax-form" placeholder="e.g. 50">
+              </div>
+            </div>
+            <div class="form-group form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="encendido-form">
+              <label class="form-check-label" for="encendido-form">Encender la turbina?</label>
+            </div>
+              <br>
+              <div>
+                <button id="btn-submit-turbina" class="btn btn-primary btn-lg" type="submit">Enviar</button>
               </div>
               
               

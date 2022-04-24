@@ -8,3 +8,9 @@ INSERT INTO TURBINAS VALUES ('6','40','110','50','FALSE','0');
 INSERT INTO USUARIO VALUES (1, 'sexoculo@gmail.com', 'abc123');
 INSERT INTO USUARIO VALUES (2, 'farloperez@gmail.com', 'abc123');
 INSERT INTO USUARIO VALUES (3, 'pito@gmail.com', 'abc123');
+
+
+INSERT INTO CLIMA VALUES (1, 23, 'Soleado', 3, 45);
+INSERT INTO CLIMA VALUES (2, 10, 'Lluvia fuerte', 69, 69);
+INSERT INTO CLIMA VALUES (3, 15, 'Apocalipsis nuclear', 25, 15);
+INSERT INTO CLIMA VALUES (4, 35, 'Nublado', 30, 29);
