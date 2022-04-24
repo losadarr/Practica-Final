@@ -42,31 +42,31 @@
           font-size: 3.5rem;
         }
       }
-      .split {
-        height: 100%;
-        width: 50%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        overflow-x: hidden;
+      * {
+        box-sizing: border-box;
       }
+
+      .column {
+        float: left;
+        padding: 10px;
+      }
+
       .left {
-        left: 0;
-        }
-      .right {
-        right: 0;
+        width: 65%;
       }
-      .centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+
+      .right {
+        width: 35%;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
       }
     </style>
   </head>
   <body>
-    <header>
+    <header class="fixed-top">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Iberdrola</a>
@@ -99,34 +99,58 @@
       </nav>
     </header>
     <main>
-      <div class="split left centered">
-        <img src="./resources/campoconturbinas.PNG" alt="campo" style="width:500px;height:600px;">
-      </div>
-
-      <div class="split right centered">
-        <div class="left">
-          <p>Some text here too.</p>
+      <div class="row">
+        <div class="column left" style="background-color: #aaa">
+          <div id="maindiv" class="col">
+            <img
+              src="./resources/campoconturbinas.PNG"
+              alt="campo"
+              style="width: 500px"
+            />
+          </div>
+        </div>
+        <div class="column right" style="background-color: #bbb">
+          <div class="row" style="height:50%;">
+            <p>aqui el clima</p>
+          </div>
+          <div class="row" style="height:50%">
+            <h4>Configurar turbina:</h4>
+            <form>
+              <div class="form-group">
+                <label for="id-form">Escoja una turbina</label>
+                <select class="form-control" id="id-form">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="angulo-form">Escoja el ángulo en grados:</label>
+                <input type="number" class="form-control" id="angulo-form" placeholder="e.g. 180">
+              </div>
+              <div class="form-group">
+                <label for="altura-form">Escoja la altura en metros:</label>
+                <input type="number" class="form-control" id="altura-form" placeholder="e.g. 25">
+              </div>
+              <div class="form-group">
+                <label for="vmax-form">Escoja el límite de velocidad en km/h:</label>
+                <input type="number" class="form-control" id="vmax-form" placeholder="e.g. 180">
+              </div>
+              
+              
+            </form>
+          </div>
         </div>
       </div>
-
-      <div>
-<!--         <footer class="my-5 pt-5 text-muted text-center text-small">
-          <p class="mb-1">&copy; Iberdrola 1492-2022</p>
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <a href="https://www.iberdrola.es/informacion/politica-privacidad"
-                >Privacidad</a
-              >
-            </li>
-            <li class="list-inline-item">
-              <a
-                href="https://www.iberdrola.es/02sice/images/CondicionesLegalesG.pdf"
-                >Términos y condiciones</a
-              >
-            </li>
-          </ul>
-        </footer> -->
-      </div>
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; Iberdrola 1492-2022</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://www.iberdrola.es/informacion/politica-privacidad">Privacidad</a></li>
+          <li class="list-inline-item"><a href="https://www.iberdrola.es/02sice/images/CondicionesLegalesG.pdf">Términos y condiciones</a></li>
+        </ul>
+      </footer>
     </main>
   </body>
 </html>
