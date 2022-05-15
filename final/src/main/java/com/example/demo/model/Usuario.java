@@ -7,8 +7,6 @@ import org.springframework.data.relational.core.mapping.Table;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
-@Builder
 @Table("USUARIO")
 public class Usuario {
     @Id

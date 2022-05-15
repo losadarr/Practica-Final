@@ -8,7 +8,7 @@ import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface Repository extends CrudRepository <Turbina, Long> { 
+public interface TurbinaRepository extends CrudRepository <Turbina, Long> { 
 
     @Query("SELECT * FROM TURBINA WHERE ID = :ID")
     Turbina getInfo(@Param("ID") int i); //+ "Query"

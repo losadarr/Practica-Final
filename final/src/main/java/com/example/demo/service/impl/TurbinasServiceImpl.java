@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.model.Turbina;
-import com.example.demo.repository.Repository;
+import com.example.demo.repository.TurbinaRepository;
 import com.example.demo.service.TurbinasService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class TurbinasServiceImpl implements TurbinasService{
 
     @Autowired
-	private Repository repositorio;
+	private TurbinaRepository repositorio;
 
     @Override
     public Turbina getInfo(Long i) {

@@ -7,7 +7,9 @@ import com.example.demo.repository.ClimaRepository;
 import com.example.demo.service.ClimaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ClimaServiceImpl implements ClimaService{
 
     @Autowired
