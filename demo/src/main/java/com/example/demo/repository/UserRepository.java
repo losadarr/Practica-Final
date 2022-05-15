@@ -14,14 +14,13 @@ public interface UserRepository extends CrudRepository<Usuario, Long> {
     @Query("INSERT INTO USUARIO (ID,CORREO,PASSW) VALUES (:id,:correo,:password)")
     void newUser(Long id, String correo, String password);
 
-    Usuario findByCorreo(String correo);
     
     @Modifying
     @Query("DELETE FROM USUARIO WHERE USUARIO.ID = :Id")
     void eliminarUsuario(@Param("Id")String Id);
 
     @Query("SELECT * FROM USUARIO WHERE USUARIO.CORREO = :MAIL")
-    Usuario getUserByMail(@Param("MAIL")String mail);
+    Usuario findByCorreo(@Param("MAIL")String mail);
     
 
 }

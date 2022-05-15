@@ -5,10 +5,8 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,9 +25,6 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
     
     //Get de todos los usuarios
@@ -40,15 +35,7 @@ public class UsuarioController {
         return ResponseEntity.ok().body(response);
     }
 
-    //Get de solamente el usuario con ese id
-    @GetMapping("/user/{correo}")
-    private Usuario getUser(@PathVariable("correo") String correo) {
-        
-        //Long idLong = Long.parseLong(id); 
-        return usuarioService.getUserByMail(correo);
-    }
 
-    //Meter un usuario
     @PostMapping("/user")
     public ResponseEntity<Usuario> createUserById(
         @RequestBody Usuario user){
@@ -62,7 +49,7 @@ public class UsuarioController {
     @DeleteMapping("/usuarios/{id}")
     public ResponseEntity<Usuario> deleteUser(@PathVariable String id) {
         Long idLong = Long.parseLong(id); 
-        userRepository.deleteById(idLong);
+        usuarioService.deleteByID(idLong);
         return ResponseEntity.noContent().build();
     }
    

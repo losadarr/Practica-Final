@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
     private UserRepository userRepository;
@@ -42,10 +44,6 @@ public class UsuarioServiceImpl implements UsuarioService{
         return userRepository.save(usuario);
     }
 
-    @Override
-    public Usuario getUserByMail(String correo) {
-        return userRepository.getUserByMail(correo);
-    }
 
     @Override
     public UserDetails loadUserByEmail(String correo){
