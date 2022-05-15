@@ -7,6 +7,7 @@ import com.example.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,9 @@ public class UsuarioController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     
     //Get de todos los usuarios
     @GetMapping("/user")
@@ -46,18 +50,14 @@ public class UsuarioController {
 
     //Meter un usuario
     @PostMapping("/user")
-    public ResponseEntity<String> createUserById(
-        @RequestBody Usuario usuario,
-        BindingResult bindingResult){
+    public ResponseEntity<Usuario> createUserById(
+        @RequestBody Usuario user){
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
 
-        if(bindingResult.hasErrors()){
-        return new ResponseEntity<String>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
-        }else{
-            usuarioService.createUser(usuario);
-        return new ResponseEntity<String>("{\"result\" : \"OK\"}", HttpStatus.OK);
+        Usuario newUser = usuarioService.createUser(user);
+        return ResponseEntity.ok().body(newUser);
     }
-
-  }
 
     @DeleteMapping("/usuarios/{id}")
     public ResponseEntity<Usuario> deleteUser(@PathVariable String id) {
@@ -67,13 +67,15 @@ public class UsuarioController {
     }
    
     //Actualizar todos los parámetros de un usuario
-    @PutMapping("/usuarios")
-    public ResponseEntity<Usuario> updateUser( @RequestBody Usuario usuario) {
-        Usuario newUsuario = userRepository.save(usuario);
-        if (newUsuario == null) {
-            return ResponseEntity.badRequest().body(null);
+    @PutMapping("/usuarios/{id}")
+    public ResponseEntity<Usuario> updateUser( @PathVariable String id) {
+        Long idlong = Long.parseLong(id);
+        Usuario usuario = usuarioService.getUserById(idlong);
+        usuarioService.updateUser(usuario);
+        if(usuario == null){
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok().body(newUsuario);
+        return ResponseEntity.ok().body(usuario);
     }
  
     

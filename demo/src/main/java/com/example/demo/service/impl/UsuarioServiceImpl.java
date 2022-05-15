@@ -1,10 +1,16 @@
 package com.example.demo.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
@@ -16,7 +22,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     }
 
     @Override
-    public void deleteUsuario(Long id) {
+    public void deleteByID(Long id) {
         userRepository.deleteById(id);
     }
 
@@ -26,15 +32,33 @@ public class UsuarioServiceImpl implements UsuarioService{
     }
 
     @Override
-    public void createUser(Usuario usuario){
-        Long id=usuario.getId();
-        String correo=usuario.getCorreo();
-        String password=usuario.getPassword();
-        userRepository.newUser(id,correo,password);
+    public Usuario createUser(Usuario usuario){
+        userRepository.save(usuario);
+        return usuario;
     }
 
     @Override
     public Usuario getUserByMail(String correo) {
         return userRepository.getUserByMail(correo);
+    }
+
+    @Override
+    public UserDetails loadUserByEmail(String correo){
+        Usuario user = userRepository.findByCorreo(correo);
+        List<GrantedAuthority> roles = new ArrayList<>();
+        UserDetails usuario = new User(user.getCorreo(), user.getPassword(), roles);
+        return usuario;
+    }
+
+    @Override
+    public Usuario updateUser(Usuario usuario) {
+        Usuario usuario_cambiar = userRepository.findById(usuario.getId()).get();
+        if(usuario_cambiar == null){
+            return null;
+        }
+        usuario_cambiar.setCorreo(usuario.getCorreo());
+        usuario_cambiar.setPassword(usuario.getPassword());
+        userRepository.save(usuario_cambiar);
+        return usuario_cambiar;
     }
 }
