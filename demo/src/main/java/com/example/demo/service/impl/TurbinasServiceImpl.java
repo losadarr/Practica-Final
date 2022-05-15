@@ -18,8 +18,10 @@ public class TurbinasServiceImpl implements TurbinasService{
     @Override
     public Turbina getInfo(Long i) {
         Optional<Turbina> turbina_get = repositorio.findById(i);
-        Turbina turbina = turbina_get.get();
-        return turbina;
+        if(turbina_get.isEmpty()){
+            return null;
+        }
+        return turbina_get.get();
     }
 
     @Override

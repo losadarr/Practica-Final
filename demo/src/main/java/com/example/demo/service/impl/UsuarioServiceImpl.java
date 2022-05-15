@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UserRepository;
@@ -28,7 +29,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public Usuario getUserById(Long id) {
-        return  userRepository.findById(id).get();
+        Optional<Usuario> usuario = userRepository.findById(id);
+        if(usuario.isEmpty()){
+            return null;
+        }
+        return usuario.get();
     }
 
     @Override
