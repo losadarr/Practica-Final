@@ -27,4 +27,10 @@ public class GeneradorServiceImpl implements GeneradorService{
         return repository.findAll();
     }
 
+    @Override
+    public Generador createGenerador(Generador generador){
+        generador.setId(null);
+        return repository.save(generador);
+    }
+
 }

@@ -41,12 +41,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/api/v1/documents", "/api/v1/documents/**").permitAll()
+                .antMatchers("/api/v1/**").permitAll()
                 .anyRequest().authenticated()
             .and()
             .logout(logout -> logout
                 .logoutUrl("/api/v1/logout")
-                .logoutSuccessUrl("/api/v1/users")
+                .logoutSuccessUrl("/api/v1/usuario")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
             )
