@@ -7,6 +7,7 @@ import com.example.demo.repository.GeneradorRepository;
 import com.example.demo.service.GeneradorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,4 +36,24 @@ public class GeneradorServiceImpl implements GeneradorService{
         return repository.save(generador);
     }
 
+/*     @Autowired
+    private JdbcTemplate template;
+
+    @Override
+    public Iterable<TurbinaGeneradorJoin> findAllJoin(){
+        String query = "SELECT TURBINAS.ID, TURBINAS.ENCENDIDO, TURBINAS.CARGA, GENERADOR.ID, GENERADOR.VOLTAJE, GENERADOR.ESTADO FROM TURBINAS INNER JOIN GENERADOR ON TURBINAS.ID = GENERADOR.IDTURBINA";
+        Iterable<TurbinaGeneradorJoin> TGJoin = template.query(
+            query,
+            (data, rowNum) -> {
+                return new TurbinaGeneradorJoin(
+                    data.getLong("TURBINA.ID"),
+                    data.getBoolean("TURBINA.ENCENDIDO"),
+                    data.getLong("TURBINA.CARGA"),
+                    data.getLong("GENERADOR.ID"),
+                    data.getLong("GENERADOR.VOLTAJE"),
+                    data.getString("GENERADOR.ESTADO")
+                )
+            });
+        return TGJoin;
+    }    */
 }

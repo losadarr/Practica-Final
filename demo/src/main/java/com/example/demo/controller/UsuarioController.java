@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Usuario;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;

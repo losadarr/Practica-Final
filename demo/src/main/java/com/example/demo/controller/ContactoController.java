@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Contacto;
-import com.example.demo.repository.ContactoRepository;
 import com.example.demo.service.ContactoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
