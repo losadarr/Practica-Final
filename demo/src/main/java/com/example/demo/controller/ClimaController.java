@@ -3,7 +3,6 @@ import com.example.demo.model.Clima;
 import com.example.demo.service.ClimaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,7 @@ public class ClimaController {
     private ClimaService servicio;
 
     @GetMapping("/clima")
-    public ResponseEntity<Clima> getInfoController(){
-        return new ResponseEntity<>(servicio.getClima(), HttpStatus.OK);
+    public ResponseEntity<Clima> retrieveClima(){
+        return ResponseEntity.ok().body(servicio.getClima());
     }
 }

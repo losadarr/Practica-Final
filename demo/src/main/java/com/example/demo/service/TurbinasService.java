@@ -3,8 +3,8 @@ package com.example.demo.service;
 import com.example.demo.model.Turbina;
 
 public interface TurbinasService {
-    Turbina getInfo(Long i);
+    Turbina findById(Long id);
     Iterable<Turbina> getAllInfo();
-    boolean putInfo(Long i, Long angulo, Long altura, Long velocidad_max, boolean on);
+    Turbina updateTurbina(Turbina turbina);
     Turbina createInfo(Turbina turbina);
 }

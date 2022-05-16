@@ -7,7 +7,6 @@ const validateUser = async () => {
     method: "GET",
   });
   if (request.ok) {
-    //console.log(await request.json());
     datos = await request.json();
     let id = datos.id;
     let correo = datos.correo;

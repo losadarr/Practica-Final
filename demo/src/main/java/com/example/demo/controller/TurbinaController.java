@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.NonNull;
-
 @RestController
 @RequestMapping("/api/v1")
 public class TurbinaController {
@@ -26,7 +24,7 @@ public class TurbinaController {
     @GetMapping("/turbina/{id}")
     public ResponseEntity<Turbina> getInfoController(@PathVariable("id") String id){
         Long idLong = Long.parseLong(id); 
-        return new ResponseEntity<>(servicio.getInfo(idLong), HttpStatus.OK);
+        return new ResponseEntity<>(servicio.findById(idLong), HttpStatus.OK);
     }
 
     @GetMapping("/turbina")
@@ -35,37 +33,20 @@ public class TurbinaController {
     }
 
     @PutMapping("/turbina")
-    public ResponseEntity<String> putInfo(@RequestBody Turbina turbina){
-        Long id = turbina.getId();
-        Long angulo = turbina.getAngulo();
-        Long altura = turbina.getAltura();
-        Long velocidad_max = turbina.getVelocidad_max();
-        boolean on = turbina.getOn();
-        servicio.putInfo(id, angulo, altura, velocidad_max, on);
-        return new ResponseEntity<>("Ok! Cambios realizados", HttpStatus.OK);
+    public ResponseEntity<Turbina> putInfo(@RequestBody Turbina turbina){
+        Turbina turbinaComp = servicio.findById(turbina.getId());
+        if(turbinaComp == null){
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok().body(servicio.updateTurbina(turbina));
     }
 
-    @PostMapping("/turbina/{id}")
-    public ResponseEntity<Turbina> postInfo(@PathVariable String id, @RequestBody Turbina turbina){
-
-        return new ResponseEntity<>(turbina, HttpStatus.OK);
+    @PostMapping("/turbina")
+    public ResponseEntity<Turbina> postInfo(@RequestBody Turbina turbina){
+        Turbina turbinaComp = servicio.findById(turbina.getId());
+        if(turbinaComp != null){
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok().body(servicio.createInfo(turbina));
     }
-    public record DataRequest(
-        @NonNull
-        Long id,
-
-        @NonNull
-        Long angulo,
-
-        @NonNull
-        Long altura,
-        
-        @NonNull
-        Long velocidad_max,
-        
-        @NonNull
-        boolean encendido,
-        
-        @NonNull
-        Long carga) {}
 }

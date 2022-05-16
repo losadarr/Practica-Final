@@ -41,7 +41,10 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public Usuario createUser(Usuario usuario){
-        usuario.setId(null);
+        Optional<Usuario> otroUser = userRepository.findById(usuario.getId());
+        if(otroUser.isPresent()){
+            return null;
+        }
         return userRepository.save(usuario);
     }
 

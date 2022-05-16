@@ -16,8 +16,8 @@ public class TurbinasServiceImpl implements TurbinasService{
 	private TurbinaRepository repositorio;
 
     @Override
-    public Turbina getInfo(Long i) {
-        Optional<Turbina> turbina_get = repositorio.findById(i);
+    public Turbina findById(Long id) {
+        Optional<Turbina> turbina_get = repositorio.findById(id);
         if(turbina_get.isEmpty()){
             return null;
         }
@@ -30,19 +30,18 @@ public class TurbinasServiceImpl implements TurbinasService{
     }
 
     @Override
-    public boolean putInfo(Long i, Long angulo, Long altura, Long velocidad_max, boolean on) {
-        //return repositorio.putInfo(i, angulo, altura, velocidad_max, on);
-        Optional<Turbina> turbina1 = repositorio.findById(i);
+    public Turbina updateTurbina(Turbina turbina) {
+        Optional<Turbina> turbina1 = repositorio.findById(turbina.getId());
         if (turbina1.isEmpty()){
-            return false;
+            return null;
         }
-
-        Turbina turbina = turbina1.get();
-        turbina.setAngulo(angulo);
-        turbina.setAltura(altura);
-        turbina.setVelocidad_max(velocidad_max);
-        turbina.setOn(on);
-        return true;
+        Turbina turbina2 = turbina1.get();
+        turbina2.setAngulo(turbina.getAngulo());
+        turbina2.setAltura(turbina.getAltura());
+        turbina2.setVelocidad_max(turbina.getVelocidad_max());
+        turbina2.setOn(turbina.getOn());
+        turbina2.setCarga(turbina.getCarga());
+        return turbina2;
     }
 
     @Override

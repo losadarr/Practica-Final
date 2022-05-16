@@ -12,9 +12,6 @@ public interface TurbinaRepository extends CrudRepository <Turbina, Long> {
     @Query("SELECT * FROM TURBINA WHERE ID = :ID")
     Turbina getInfo(@Param("ID") int i); //+ "Query"
 
-    @Query("SELECT * FROM TURBINA ;")
-    Iterable<Turbina> getAllInfo(); //+ "Query"
-
     @Modifying
     @Query("INSERT INTO TURBINA VALUES(:ID, :ANGULO, :ALTURA, :VELOCIDAD_MAX, :ENCENDIDO, :CARGA")
     int addTurbina(@Param("ID")Long id, @Param("ANGULO")Long angulo, @Param("ALTURA")Long altura, @Param("VELOCIDAD_MAX")Long velocidad_max, @Param("ENCENDIDO")boolean on);
