@@ -1,6 +1,4 @@
 const validateUser = async () => {
-  //let usuarioInput=document.getElementById("nombreUsuarioInicio").value;
-  //let contrasenyaInput=document.getElementById("contrasenyaInicio").value;
 
   let correoInput = $("#login").value;
   let passwordInput = $("#password").value;

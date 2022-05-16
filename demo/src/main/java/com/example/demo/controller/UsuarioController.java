@@ -27,7 +27,7 @@ public class UsuarioController {
     private PasswordEncoder passwordEncoder;
     
     //Get de todos los usuarios
-    @GetMapping("/user")
+    @GetMapping("/usario")
     public ResponseEntity<Iterable<Usuario>> retrieveUsers(@RequestParam(required=false) String estado) {
         
         Iterable<Usuario> response = usuarioService.getUsuarios();
@@ -35,7 +35,7 @@ public class UsuarioController {
     }
 
 
-    @PostMapping("/user")
+    @PostMapping("/usuario")
     public ResponseEntity<Usuario> createUserById(
         @RequestBody Usuario user){
         String hashedPassword = passwordEncoder.encode(user.getPassword());
@@ -45,7 +45,7 @@ public class UsuarioController {
         return ResponseEntity.ok().body(newUser);
     }
 
-    @DeleteMapping("/usuarios/{id}")
+    @DeleteMapping("/usuario/{id}")
     public ResponseEntity<Usuario> deleteUser(@PathVariable String id) {
         Long idLong = Long.parseLong(id); 
         usuarioService.deleteByID(idLong);
@@ -53,7 +53,7 @@ public class UsuarioController {
     }
    
     //Actualizar todos los parámetros de un usuario
-    @PutMapping("/usuarios/{id}")
+    @PutMapping("/usuario/{id}")
     public ResponseEntity<Usuario> updateUser( @PathVariable String id) {
         Long idlong = Long.parseLong(id);
         Usuario usuario = usuarioService.getUserById(idlong);
