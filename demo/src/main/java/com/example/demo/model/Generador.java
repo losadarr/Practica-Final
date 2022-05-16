@@ -11,8 +11,17 @@ public class Generador {
     private @Column("VOLTAJE") Long voltaje;
     private @Column("PRESION") Long presion;
     private @Column("ESTADO") String estado;
+    private @Column("TURBINA_ID") String turbinaId;
 
     public Generador() {
+    }
+
+    public String getTurbinaId() {
+        return turbinaId;
+    }
+
+    public void setTurbinaId(String turbinaId) {
+        this.turbinaId = turbinaId;
     }
 
     public Long getId() {
@@ -60,6 +69,7 @@ public class Generador {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((turbinaId == null) ? 0 : turbinaId.hashCode());
         return result;
     }
 
@@ -77,7 +87,12 @@ public class Generador {
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (turbinaId == null) {
+            if (other.turbinaId != null)
+                return false;
+        } else if (!turbinaId.equals(other.turbinaId))
+            return false;
         return true;
     }
-
+    
 }

@@ -42,15 +42,15 @@ public class GeneradorServiceImpl implements GeneradorService{
 
     @Override
     public Iterable<TurbinaGeneradorJoin> findAllJoin(){
-        String query = "SELECT TURBINAS.ID, TURBINAS.ENCENDIDO, TURBINAS.CARGA, GENERADOR.ID, GENERADOR.VOLTAJE, GENERADOR.ESTADO FROM TURBINAS INNER JOIN GENERADOR ON TURBINAS.ID = GENERADOR.IDTURBINA";
+        String query = "SELECT TURBINAS.ID, TURBINAS.ENCENDIDO, TURBINAS.CARGA, GENERADOR.ID, GENERADOR.VOLTAJE, GENERADOR.ESTADO FROM TURBINAS INNER JOIN GENERADOR ON TURBINAS.ID = GENERADOR.TURBINA_ID";
         Iterable<TurbinaGeneradorJoin> TGJoin = template.query(
             query,
             (data, rowNum) -> {
                 return new TurbinaGeneradorJoin(
-                    data.getLong("TURBINA.ID"),
+                    data.getLong("TURBINAS.ID"),
                     data.getLong("GENERADOR.ID"),
-                    data.getBoolean("TURBINA.ENCENDIDO"),
-                    data.getLong("TURBINA.CARGA"),
+                    data.getBoolean("TURBINAS.ENCENDIDO"),
+                    data.getLong("TURBINAS.CARGA"),
                     data.getLong("GENERADOR.VOLTAJE"),
                     data.getString("GENERADOR.ESTADO")
                 );
