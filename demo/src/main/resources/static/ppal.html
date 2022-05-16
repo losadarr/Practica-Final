@@ -117,24 +117,24 @@
               <tbody>
                 <tr>
                   <td>Temperatura</td>
-                  <td id="temp">25</td>
+                  <td><p id="temp"></p></td>
                 </tr>
                 <tr>
-                  <td>Descricion</td>
-                  <td id="desc">Lluvia</td>
+                  <td>Descripcion</td>
+                  <td id="desc"></td>
                 </tr>
                 <tr>
                   <td>Precipitacion</td>
-                  <td id="prec">35</td>
+                  <td id="prec"></td>
                 </tr>
                 <tr>
                   <td>Viento</td>
-                  <td id="wind">40</td>
+                  <td><p id="wind"></p></td>
                 </tr>
                 </tbody>
             </table>
             <div>
-              <button id="btn-clima" class="btn btn-secondary" type="submit">Refrescar</button>
+              <button onclick="updateClima();" class="btn btn-secondary">Refrescar</button>
             </div>
           </div>
           <div class="row" style="height:50%">
@@ -173,7 +173,7 @@
             </div>
               <br>
               <div>
-                <button id="btn-submit-turbina" class="btn btn-secondary" type="submit">Enviar</button>
+                <button onclick="validarFormTurbina();" class="btn btn-secondary" type="submit">Enviar</button>
               </div>
               
               

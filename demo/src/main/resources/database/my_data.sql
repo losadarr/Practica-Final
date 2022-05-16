@@ -32,5 +32,5 @@ INSERT INTO GENERADOR (RPM, VOLTAJE, PRESION, ESTADO, TURBINA_ID) VALUES (0, 220
 INSERT INTO GENERADOR (RPM, VOLTAJE, PRESION, ESTADO, TURBINA_ID) VALUES (0, 220, 3, 'Apagado',5);
 INSERT INTO GENERADOR (RPM, VOLTAJE, PRESION, ESTADO, TURBINA_ID) VALUES (57, 220, 12, 'Bajo rendimiento',5);
 
-INSERT INTO CONTACTO (NOMBRE, APELLIDOS, CORREO, DIRECCION, PAIS, ESTADO, ZIP, TARIFA, DESEA_PROMO, DESEA_COM) VALUES ('Bruno', 'Sanhuan', 'brunardo@gmail.com','Calle Costa Brava 20 2 Der', 'Guinea Ecuatorial', 'Ciudad Real', 28034, 'Plan de ahorro dos tramos', TRUE, FALSE);
-INSERT INTO CONTACTO (NOMBRE, APELLIDOS, CORREO, DIRECCION, PAIS, ESTADO, ZIP, TARIFA, DESEA_PROMO, DESEA_COM) VALUES ('Pedro', 'de la Rosa', 'vueltarapida@hotmail.com','Calle Ibai Llanos 15 5 A', 'Andorra', NULL, 18929, 'Plan de ahorro tres tramos', TRUE, TRUE);
+INSERT INTO CONTACTO (NOMBRE, APELLIDOS, CORREO, DIRECCION, PAIS, ESTADO, ZIP, TARIFA, DESEA_PROMO, DESEA_COM) VALUES ('Bruno', 'Sanhuan', 'brunardo@gmail.com','Calle Costa Brava 20 2 Der', 'Guinea Ecuatorial', 'Ciudad Real', 28034, '2', TRUE, FALSE);
+INSERT INTO CONTACTO (NOMBRE, APELLIDOS, CORREO, DIRECCION, PAIS, ESTADO, ZIP, TARIFA, DESEA_PROMO, DESEA_COM) VALUES ('Pedro', 'de la Rosa', 'vueltarapida@hotmail.com','Calle Ibai Llanos 15 5 A', 'Andorra', NULL, 18929, '3', TRUE, TRUE);

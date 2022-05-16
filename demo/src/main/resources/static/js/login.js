@@ -18,6 +18,3 @@ const validateUser = async () => {
   }
 };
 
-$("#login-button").on("click", () => {
-  validateUser();
-});

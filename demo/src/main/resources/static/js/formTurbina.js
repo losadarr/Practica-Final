@@ -1,9 +1,9 @@
 const validarFormTurbina = async () => {
-    let idInput = $("#id-form");
-    let anguloInput = $("#angulo-form");
-    let alturaInput = $("#altura-form");
-    let vmaxInput = $("#vmax-form");
-    let encendidoInput = $("#encendido-form").checked;
+    let idInput = document.getElementById("id-form");
+    let anguloInput = document.getElementById("angulo-form");
+    let alturaInput = document.getElementById("altura-form");
+    let vmaxInput = document.getElementById("vmax-form");
+    let encendidoInput = document.getElementById("encendido-form").checked;
 
     if(isNaN(anguloInput) || isNaN(alturaInput) || isNaN(vmaxInput)){
         alert("Valores mal introducidos, pruebe otra vez");
@@ -36,6 +36,3 @@ const validarFormTurbina = async () => {
         
       }
 }
-$("#btn-submit-turbina").on("click", () => {
-    validateFormTurbina();
-  });

@@ -7,16 +7,25 @@ const updateGeneradorJoin = async () =>{
         return null;
     }
     datos = await request.json();
-    let tabla = $("#cuerpo-generador-join");
+    let tabla = document.getElementById("cuerpo-generador-join");
+    if(tabla.length !=0){
+        tabla.innerHTML="";
+    }
     for(let i=0; i<datos.length; i++){
         let newRow = tabla.insertRow(tabla.length);
         let filaActual = json2array(datos[i]);
         for(let j=0; j<filaActual.length; j++){
             let celda = newRow.insertCell(j);
-            celda.html(filaActual[j]);
+            celda.innerHTML = filaActual[j];
         }
     }
 }
-$("#btn-generador").on("click", () => {
-    updateGeneradorJoin();
-  });
+
+const json2array=(json)=>{
+    let result = [];
+    let keys = Object.keys(json);
+    keys.forEach(function(key){
+        result.push(json[key]);
+    });
+    return result;
+}

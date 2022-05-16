@@ -1,4 +1,4 @@
-# Practica-Final
+# Practica Final de PAT de Daniel Losada y Antonio Pardo de Santayana
 ## Introducción
 En esta práctica final se aplican todos los conceptos vistos en clase orientados a una página web para Iberdrola, la cual se divide en dos partes principales.
 ## Parte de clientes
@@ -14,6 +14,10 @@ En la página login.html los administradores pueden autenticarse mediante correo
 ### Gestión de turbinas
 La primera que nos concierne es ppal.html, que se encarga principalmente de gestionar las turbinas del parque. Cada turbina tiene una serie de parámetros que se pueden visualizar y modificar en todo momento, mediante peticiones al endpoint /turbinas. Para que los operarios siempre tengan la información necesaria a mano, se incluye la página guia.html, que les permite saber como ajustar los parámetros en función del clima, que también aparece en la pantalla.
 ### Gestión de generadores
-
+Los generadores se controlan a través de la página generador.html, donde además se incluye una tabla que realiza un join entre turbinas y generadores, ya que cada generador tiene una turbina asignada..
 ### Clima
 No tenemos una forma realista de sacar la información verdadera acerca del clima, ya que todos los APIs que hemos encontrado por Internet son de pago, por lo que hemos creado el nuestro en el endpoint /clima, que mediante peticiones get genera una serie de condiciones climáticas que se muestran en la página ppal.html.
+## Testing
+En esta práctica no se han implantado tests unitarios, ya que se considera que las clases implementadas no requieren tanta validación como para merecerlo, pero sí que se han añadido algunos tests E2E, para comprobar el funcionamiento de algunos endpoints.
+El primero se centra en la clase clima, aunque solo es capaz de verificar que la llamada se hace correctamente, debido a la naturaleza aleatoria de la propia clase Clima.
+El segundo comprueba la petición get al join entre turbinas y generadores, verificando que la llamada se lleva a cabo con éxito.

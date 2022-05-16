@@ -1,9 +1,9 @@
 const guardarDatos = () => {
-    let correo1 = $("#login");
-    let correo2 = $("#login-repeat");
-    let passw1 = $("#password");
-    let passw2 = $("#password-repeat");
-    let clave = $("#clave-secreta");
+    let correo1 = document.getElementById("login");
+    let correo2 = document.getElementById("login-repeat");
+    let passw1 = document.getElementById("password");
+    let passw2 = document.getElementById("password-repeat");
+    let clave = document.getElementById("clave-secreta");
 
     if(correo1 != correo2){
         alert("Los correos no coinciden, vuelva a intentarlo");
@@ -46,6 +46,3 @@ const maquinarRegistro = async () => {
         }
     })
 }
-$("#signup-button").on("click", () => {
-    maquinarRegistro();
-  });

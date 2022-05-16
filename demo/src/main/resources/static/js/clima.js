@@ -7,20 +7,11 @@ const updateClima = async () =>{
         let tempDatos = datos.temperatura;
         let descDatos = datos.descripcion;
         let precDatos = datos.precipitacion;
-        let windDatos = datos.velocidad-viento;
-
-        let temperatura = $("#temp");
-        let descripcion = $("#desc");
-        let precipitacion = $("#prec");
-        let viento = $("#wind");
-
-        temperatura.html(tempDatos);
-        descripcion.html(descDatos);
-        precipitacion.html(precDatos);
-        viento.html(windDatos);
-
+        let windDatos = datos.velocidad_viento;
+        
+        document.getElementById("temp").innerHTML=tempDatos;
+        document.getElementById("desc").innerHTML=descDatos;
+        document.getElementById("prec").innerHTML=precDatos;
+        document.getElementById("wind").innerHTML=windDatos;
     }
 }
-$("#btn-clima").on("click", () => {
-    updateClima();
-  });

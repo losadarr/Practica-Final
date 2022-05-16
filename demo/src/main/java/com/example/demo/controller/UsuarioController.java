@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -25,11 +24,9 @@ public class UsuarioController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    
-    //Get de todos los usuarios
+
     @GetMapping("/usario")
-    public ResponseEntity<Iterable<Usuario>> retrieveUsers(@RequestParam(required=false) String estado) {
-        
+    public ResponseEntity<Iterable<Usuario>> retrieveUsers() {
         Iterable<Usuario> response = usuarioService.getUsuarios();
         return ResponseEntity.ok().body(response);
     }
@@ -63,6 +60,4 @@ public class UsuarioController {
         }
         return ResponseEntity.ok().body(usuario);
     }
- 
-    
 }
