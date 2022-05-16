@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -46,7 +47,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 
     @Override
-    public UserDetails loadUserByEmail(String correo){
+    public UserDetails loadUserByUsername(String correo) throws UsernameNotFoundException{
         Usuario user = userRepository.findByCorreo(correo);
         List<GrantedAuthority> roles = new ArrayList<>();
         UserDetails usuario = new User(user.getCorreo(), user.getPassword(), roles);
@@ -64,4 +65,5 @@ public class UsuarioServiceImpl implements UsuarioService{
         userRepository.save(usuario_cambiar);
         return usuario_cambiar;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.join.TurbinaGeneradorJoin;
 import com.example.demo.model.Generador;
 import com.example.demo.service.GeneradorService;
 
@@ -38,5 +39,10 @@ public class GeneradorController{
         Generador newGenerador = servicio.createGenerador(generador);
         return ResponseEntity.ok().body(newGenerador);
 
+    }
+
+    @GetMapping("/generador/join")
+    public ResponseEntity<Iterable<TurbinaGeneradorJoin>> findAllJoin(){
+        return ResponseEntity.ok().body(servicio.findAllJoin());
     }
 }

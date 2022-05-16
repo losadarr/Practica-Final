@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import java.util.Optional;
 
+import com.example.demo.join.TurbinaGeneradorJoin;
 import com.example.demo.model.Generador;
 import com.example.demo.repository.GeneradorRepository;
 import com.example.demo.service.GeneradorService;
@@ -36,7 +37,7 @@ public class GeneradorServiceImpl implements GeneradorService{
         return repository.save(generador);
     }
 
-/*     @Autowired
+     @Autowired
     private JdbcTemplate template;
 
     @Override
@@ -47,13 +48,13 @@ public class GeneradorServiceImpl implements GeneradorService{
             (data, rowNum) -> {
                 return new TurbinaGeneradorJoin(
                     data.getLong("TURBINA.ID"),
+                    data.getLong("GENERADOR.ID"),
                     data.getBoolean("TURBINA.ENCENDIDO"),
                     data.getLong("TURBINA.CARGA"),
-                    data.getLong("GENERADOR.ID"),
                     data.getLong("GENERADOR.VOLTAJE"),
                     data.getString("GENERADOR.ESTADO")
-                )
+                );
             });
         return TGJoin;
-    }    */
+    }    
 }

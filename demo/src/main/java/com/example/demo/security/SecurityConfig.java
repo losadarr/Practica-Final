@@ -42,21 +42,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .csrf().disable()
 		.authorizeRequests()
-        .antMatchers("api/v1/**").permitAll()
+        .antMatchers("/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .formLogin(login -> login
-            .loginPage("/auth/login")
+            .loginPage("/login.html")
             .permitAll()
         )
 		.httpBasic()
         .and()
         .logout()
-        .logoutUrl("/auth/logout");
+        .logoutUrl("/index.html");
     }
 
-    // @Override
-    // protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    //     auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-    // }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    }
 }
