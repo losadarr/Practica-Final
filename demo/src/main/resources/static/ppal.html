@@ -104,11 +104,27 @@
       <div class="row">
         <div class="column left" style="background-color: #aaa">
           <div id="maindiv" class="col">
-            <img
-              src="./resources/campoconturbinas.PNG"
-              alt="campo"
-              style="width: 500px"
-            />
+            <br>
+            <br>
+            <br>
+            
+            <table>
+                <thead>
+                    <tr>
+                      <th>ID Turbina</th>
+                      <th>Angulo</th>
+                      <th>Altura</th>
+                      <th>Velocidad Max</th>
+                      <th>Encendido</th>
+                      <th>Carga</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cuerpo-turbina-join">
+                  </tbody>
+            </table>
+            <div>
+                <button onclick="updateTurbina();" class="btn btn-secondary" type="submit">Actualizar</button>
+              </div>
           </div>
         </div>
         <div class="column right" style="background-color: #bbb">
