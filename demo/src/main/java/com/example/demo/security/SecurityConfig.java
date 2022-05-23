@@ -1,4 +1,4 @@
-package com.example.demo.security;
+/* package com.example.demo.security;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,4 +59,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
-}
+} */

@@ -22,8 +22,8 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    // @Autowired
+    // private PasswordEncoder passwordEncoder;
 
     @GetMapping("/usario")
     public ResponseEntity<Iterable<Usuario>> retrieveUsers() {
@@ -35,8 +35,8 @@ public class UsuarioController {
     @PostMapping("/usuario")
     public ResponseEntity<Usuario> createUserById(
         @RequestBody Usuario user){
-        String hashedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(hashedPassword);
+        // String hashedPassword = passwordEncoder.encode(user.getPassword());
+        // user.setPassword(hashedPassword);
 
         Usuario newUser = usuarioService.createUser(user);
         return ResponseEntity.ok().body(newUser);
